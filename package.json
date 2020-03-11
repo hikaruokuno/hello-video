@@ -1,0 +1,32 @@
+{
+  "name": "videos",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.5.1",
+    "@material-ui/icons": "^4.5.1",
+    "array-move": "^2.2.1",
+    "axios": "^0.18.1",
+    "firebase": "^7.2.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "react-redux-firebase": "^3.0.5",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "0.9.x",
+    "react-sortable-hoc": "^1.10.1",
+    "react-window": "^1.8.5",
+    "redux": "^4.0.4",
+    "redux-firestore": "^0.10.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.8"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
