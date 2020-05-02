@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 // TODO:Loginを非同期対応するようにする
 // Conflictのテスト
-// 衝突するかな？
+// 衝突するかね？
 // TODO:Loginできるまでは、なにも表示したくない
 
 const Login = () => {
