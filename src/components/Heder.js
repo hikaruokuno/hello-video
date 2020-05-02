@@ -19,39 +19,32 @@ import Collapse from '@material-ui/core/Collapse';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import Button from '@material-ui/core/Button';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
-import Auth from './Auth';
 import Inbox from './Inbox';
 import AuthContainer from '../reducers/authReducer';
-import NavigationItem from '../components/test/NavigationItem';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   grow: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20
+    marginRight: 20,
   },
   nested: {
-    paddingLeft: theme.spacing(4)
-  }
+    paddingLeft: theme.spacing(4),
+  },
 }));
-// TODO: Hederにauthコンテナー追加する？
-// 認証の有無によってかわるものがある場合↑
 const Header = () => {
   const classes = useStyles();
   const [drawer, setDrawer] = useState(false);
   const [open, setOpen] = React.useState(true);
 
-  const handleMenu = event => {
+  const handleMenu = (event) => {
     setDrawer(true);
   };
   const handleClose = () => {
