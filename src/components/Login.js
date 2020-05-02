@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
 // TODO:Loginを非同期対応するようにする
-// 衝突するかな？
+// 衝突するか？
 // TODO:Loginできるまでは、なにも表示したくない
 
 const Login = () => {
