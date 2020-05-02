@@ -3,11 +3,6 @@ import firebase from 'firebase/app';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
-// TODO:Loginを非同期対応するようにする
-// Conflictのテスト
-// 衝突するか？
-// TODO:Loginできるまでは、なにも表示したくない
-
 const Login = () => {
   const googleSignIn = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
