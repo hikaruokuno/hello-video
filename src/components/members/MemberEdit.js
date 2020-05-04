@@ -11,7 +11,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { ListItem } from '@material-ui/core';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -22,27 +21,12 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import DragHandleIcon from '@material-ui/icons/DragHandle';
 import './MemberEdit.css';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    maxWidth: 300,
-    backgroundColor: theme.palette.background.paper,
-  },
-  nested: {
-    paddingLeft: theme.spacing(4),
-  },
-  button: {
-    margin: theme.spacing(0),
-  },
-}));
-
 const MemberEdit = (props) => {
   const [items, setItems] = useState([]);
   const { auth } = props;
   const authenticated = !auth.isEmpty;
   useEffect(() => {
     if (authenticated && auth.isLoaded) {
-      // setItems(props.member);
       getMember();
       props.fetchMember(auth.uid);
     }
@@ -51,7 +35,6 @@ const MemberEdit = (props) => {
   const getMember = async () => {
     const db = firebase.firestore();
     const lists = [];
-    console.log(lists);
     await db
       .collection('users')
       .doc(auth.uid)
@@ -66,12 +49,10 @@ const MemberEdit = (props) => {
     lists.sort(function (a, b) {
       return a.sort - b.sort;
     });
-    console.log(lists);
     setItems(lists);
     return lists;
   };
 
-  const classes = useStyles();
   const [checked, setChecked] = useState([]);
   const handleToggle = (value) => () => {
     const currentIndex = checked.indexOf(value);
@@ -87,12 +68,10 @@ const MemberEdit = (props) => {
   };
 
   const membersUpdate = async (members) => {
-    console.log(members);
     const db = firebase.firestore();
     // すべてのループが完了するまで待つ
     await Promise.all(
       members.map(async (member, sort = 0) => {
-        console.log(member, sort);
         await db
           .collection('users')
           .doc(auth.uid)
@@ -114,11 +93,9 @@ const MemberEdit = (props) => {
   };
 
   const membersDelete = async (members) => {
-    console.log(members);
     const db = firebase.firestore();
     await Promise.all(
       members.map(async (member) => {
-        console.log(member[0].name);
         await db
           .collection('users')
           .doc(auth.uid)
@@ -212,7 +189,6 @@ const MemberEdit = (props) => {
                 className="edit-button-width"
                 to={{ pathname: '/members/complete', state: { text: '更新' } }}
                 component={Link}
-                // style={satoStyle}
               >
                 更新
               </Button>
@@ -223,7 +199,6 @@ const MemberEdit = (props) => {
                 className="edit-button-width"
                 to={{ pathname: '/members/complete', state: { text: '削除' } }}
                 component={Link}
-                // style={satoStyle}
               >
                 削除
               </Button>

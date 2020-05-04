@@ -5,5 +5,3 @@ export default (selectedVideo = null, action) => {
   }
   return selectedVideo;
 };
-
-// selectedVideoReducerが動かない

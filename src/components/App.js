@@ -14,11 +14,10 @@ class App extends React.Component {
   }
 
   render() {
-    const user = false;
     return (
       <div>
         <BrowserRouter>
-          <Header user={user} />
+          <Header />
           <div className="ui container">
             <Route path="/" exact component={AuthVideoShow} />
             <Route path="/members/add" exact component={AuthMemberAdd} />

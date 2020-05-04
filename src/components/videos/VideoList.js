@@ -8,13 +8,7 @@ const VideoList = ({ video }) => {
   }
 
   const renderdList = items.map((v) => {
-    return (
-      <VideoItem
-        key={v.id.videoId}
-        // onVideoSelect={onVideoSelect}
-        video={v}
-      />
-    );
+    return <VideoItem key={v.id.videoId} video={v} />;
   });
 
   return <div className="ui relaxed divided list">{renderdList}</div>;

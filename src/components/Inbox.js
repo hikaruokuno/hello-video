@@ -12,12 +12,12 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 
-const Inbox = props => {
-  const memberList = props.members.map(member => {
+const Inbox = (props) => {
+  const memberList = props.members.map((member) => {
     return member.name;
   });
-  const renderList = memberList.map(member => {
-    const onClick = member => {
+  const renderList = memberList.map((member) => {
+    const onClick = (member) => {
       props.fetchVideo(member);
       props.selectedMember(member);
     };
@@ -43,11 +43,10 @@ const Inbox = props => {
   return <div>{renderList}</div>;
 };
 
-const mapStateToProps = state => {
-  console.log(state);
+const mapStateToProps = (state) => {
   return {
     videos: state.videos,
-    members: state.members
+    members: state.members,
   };
 };
 

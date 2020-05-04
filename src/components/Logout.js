@@ -14,21 +14,16 @@ import { randomOg } from '../reducers/groupsReducer';
 const Logout = (props) => {
   useEffect(() => {
     const test = async () => {
-      console.log('fetchMember実行');
       await props.fetchMember(props.firebase.auth.uid);
-      console.log('fetchMember終了', props);
     };
 
     const awaitTestFetchVideo = async () => {
       await test();
-      console.log('testメソッド終了', props);
     };
     awaitTestFetchVideo();
   }, []);
 
-  console.log(props);
   const googleSignOut = () => {
-    console.log('logout', props);
     firebase.auth().signOut();
     props.clearMember();
     props.fetchVideo(randomOg());
