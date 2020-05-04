@@ -36,7 +36,6 @@ const MemberAdd = (props) => {
 
   useEffect(() => {
     if (authenticated && auth.isLoaded) {
-      console.log('ログイン中');
     }
   }, [auth]);
 
@@ -172,7 +171,6 @@ const MemberAdd = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.groups);
   return {
     member: state.members,
     group: state.selectedGroup,

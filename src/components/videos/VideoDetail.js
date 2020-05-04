@@ -30,7 +30,6 @@ const VideoDetail = ({ video, init }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.videos.items[0]);
   return {
     video: state.selectedVideo,
     init: state.videos.items[0],

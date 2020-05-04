@@ -5,7 +5,7 @@ import 'firebase/auth';
 import 'firebase/firestore';
 
 export const selectVideo = (video) => {
-  console.log(video);
+  video;
   return {
     type: 'SELECTED_VIDEO',
     payload: video,
@@ -32,8 +32,6 @@ export const nextPage = (term, nextPageToken) => async (dispatch) => {
       pageToken: nextPageToken,
     },
   });
-  console.log(response.data);
-
   dispatch({ type: 'FETCH_VIDEO', payload: response.data });
 };
 
@@ -56,7 +54,6 @@ export const fetchMember = (uid) => async (dispatch) => {
   lists.sort(function (a, b) {
     return a.sort - b.sort;
   });
-  console.log('response', lists);
   dispatch({ type: 'FETCH_MEMBER', payload: lists });
 };
 
@@ -78,7 +75,6 @@ export const signOut = () => {
 };
 
 export const selectedMember = (member) => {
-  console.log(member);
   return {
     type: 'SELECTED_MEMBER',
     payload: member,
@@ -86,7 +82,6 @@ export const selectedMember = (member) => {
 };
 
 export const selectedGroup = (group) => {
-  console.log(group);
   return {
     type: 'SELECTED_GROUP',
     payload: group,
