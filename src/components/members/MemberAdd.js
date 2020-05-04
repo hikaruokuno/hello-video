@@ -14,6 +14,7 @@ import { connect } from 'react-redux';
 import { fetchMember, selectedGroup } from '../../actions';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import './MemberAdd.css';
+import { groupNameAndColor } from '../../reducers/groupsReducer';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,8 +42,6 @@ const MemberAdd = (props) => {
 
   const classes = useStyles();
   const [checked, setChecked] = useState([]);
-  const [open, setOpen] = useState(true);
-  const [setDrawer] = useState(false);
   const handleToggle = (value) => () => {
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
@@ -54,13 +53,6 @@ const MemberAdd = (props) => {
     }
 
     setChecked(newChecked);
-  };
-
-  const handleClose = () => {
-    // setDrawer(false);
-  };
-  const handleClick = () => {
-    setOpen(!open);
   };
 
   const membersAdd = async (members) => {
@@ -92,7 +84,6 @@ const MemberAdd = (props) => {
   };
 
   const memberList = props.group;
-
   const nonAddMember = memberList.member.filter((memb) => {
     // 推したちに追加されていないメンバーを抽出する
     return !props.member.some((member) => member.name === memb.name);
@@ -127,6 +118,17 @@ const MemberAdd = (props) => {
     );
   });
 
+  const groupList = groupNameAndColor.map((group) => {
+    return (
+      <Button
+        onClick={() => props.selectedGroup(group.id)}
+        style={{ backgroundColor: group.color }}
+      >
+        {group.name}
+      </Button>
+    );
+  });
+
   return (
     <div>
       {(() => {
@@ -145,76 +147,12 @@ const MemberAdd = (props) => {
                   aria-label="contained primary button group"
                   style={{ marginTop: '5px', textAlign: 'center' }}
                 >
-                  <Button
-                    onClick={() => props.selectedGroup('musume')}
-                    style={{ backgroundColor: '#E5457D' }}
-                    // to={{ pathname: '/members/complete', state: { text: '追加' } }}
-                    // component={Link}
-                    // style={satoStyle}
-                  >
-                    娘。
-                  </Button>
-                  <Button
-                    onClick={() => props.selectedGroup('angerme')}
-                    style={{ backgroundColor: '#FF85AD' }}
-                    // to={{ pathname: '/members/complete', state: { text: '追加' } }}
-                    // component={Link}
-                    // style={satoStyle}
-                  >
-                    アン
-                  </Button>
-                  <Button
-                    onClick={() => props.selectedGroup('juice')}
-                    style={{ backgroundColor: '#F90' }}
-                    // to={{ pathname: '/members/complete', state: { text: '追加' } }}
-                    // component={Link}
-                    // style={satoStyle}
-                  >
-                    JJ
-                  </Button>
-                  <Button
-                    onClick={() => props.selectedGroup('kobushi')}
-                    style={{ backgroundColor: '#F72F1F' }}
-                    // to={{ pathname: '/members/complete', state: { text: '追加' } }}
-                    // component={Link}
-                    // style={satoStyle}
-                  >
-                    こぶ
-                  </Button>
-                  <Button
-                    onClick={() => props.selectedGroup('tsubaki')}
-                    style={{ backgroundColor: '#787FDC' }}
-                    // to={{ pathname: '/members/complete', state: { text: '追加' } }}
-                    // component={Link}
-                    // style={satoStyle}
-                  >
-                    つば
-                  </Button>
-                  <Button
-                    onClick={() => props.selectedGroup('beyo')}
-                    style={{ backgroundColor: '#ba3cb8' }}
-                    // to={{ pathname: '/members/complete', state: { text: '追加' } }}
-                    // component={Link}
-                    // style={satoStyle}
-                  >
-                    ビヨ
-                  </Button>
+                  {groupList}
                 </ButtonGroup>
               </div>
-              {/* <ListItem button onClick={handleClick}>
-        <ListItemIcon>
-          <GroupIcon />
-        </ListItemIcon>
-        <ListItemText primary="モーニング娘" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <div onClick={handleClose}> */}
               <List component="div" disablePadding>
                 {renderList}
               </List>
-              {/* </div>
-      </Collapse> */}
               <Button
                 onClick={() => membersAdd(selectMembers)}
                 variant="contained"
@@ -222,7 +160,6 @@ const MemberAdd = (props) => {
                 className="add-button-width"
                 to={{ pathname: '/members/complete', state: { text: '追加' } }}
                 component={Link}
-                // style={satoStyle}
               >
                 追加
               </Button>

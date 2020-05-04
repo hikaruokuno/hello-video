@@ -13,8 +13,8 @@ export const musume = {
     { id: 10, name: '森戸知沙希', color: 'white', isDone: false },
     { id: 11, name: '北川莉央', color: 'white', isDone: false },
     { id: 12, name: '岡村ほまれ', color: 'white', isDone: false },
-    { id: 13, name: '山﨑愛生', color: 'white', isDone: false }
-  ]
+    { id: 13, name: '山﨑愛生', color: 'white', isDone: false },
+  ],
 };
 
 export const angerme = {
@@ -28,8 +28,8 @@ export const angerme = {
     { id: 20, name: '川村文乃', color: 'plum', isDone: false },
     { id: 21, name: '太田遥香', color: '#00b379', isDone: false },
     { id: 22, name: '伊勢鈴蘭', color: '#f5b48c', isDone: false },
-    { id: 23, name: '橋迫鈴', color: '#f00', isDone: false }
-  ]
+    { id: 23, name: '橋迫鈴', color: '#f00', isDone: false },
+  ],
 };
 
 export const juice = {
@@ -43,8 +43,8 @@ export const juice = {
     { id: 30, name: '工藤由愛	', color: 'plum', isDone: false },
     { id: 31, name: '太田遥香', color: '#00b379', isDone: false },
     { id: 32, name: '伊勢鈴蘭', color: '#f5b48c', isDone: false },
-    { id: 33, name: '松永里愛', color: '#f00', isDone: false }
-  ]
+    { id: 33, name: '松永里愛', color: '#f00', isDone: false },
+  ],
 };
 
 export const kobushi = {
@@ -53,8 +53,8 @@ export const kobushi = {
     { id: 35, name: '野村みな美', color: '#007ec7', isDone: false },
     { id: 36, name: '浜浦彩乃', color: 'gold', isDone: false },
     { id: 37, name: '和田桜子', color: 'Aquamarine', isDone: false },
-    { id: 38, name: '井上玲音', color: '#E5007F', isDone: false }
-  ]
+    { id: 38, name: '井上玲音', color: '#E5007F', isDone: false },
+  ],
 };
 
 export const tsubaki = {
@@ -67,8 +67,8 @@ export const tsubaki = {
     { id: 44, name: '浅倉樹々', color: 'bule', isDone: false },
     { id: 45, name: '小野瑞歩', color: '#007ec7', isDone: false },
     { id: 46, name: '小野田紗栞', color: 'gold', isDone: false },
-    { id: 47, name: '秋山眞緒', color: 'Aquamarine', isDone: false }
-  ]
+    { id: 47, name: '秋山眞緒', color: 'Aquamarine', isDone: false },
+  ],
 };
 
 export const beyo = {
@@ -84,8 +84,8 @@ export const beyo = {
     { id: 56, name: '清野桃々姫', color: 'Aquamarine', isDone: false },
     { id: 57, name: '平井美葉', color: 'gold', isDone: false },
     { id: 58, name: '小林萌花', color: 'gold', isDone: false },
-    { id: 59, name: '里吉うたの', color: 'gold', isDone: false }
-  ]
+    { id: 59, name: '里吉うたの', color: 'gold', isDone: false },
+  ],
 };
 
 const og = [
@@ -126,7 +126,7 @@ const og = [
   '熊井友理奈',
   '新垣里沙',
   '徳永千奈美',
-  '加護亜依'
+  '加護亜依',
 ];
 
 export const randomOg = () => {
@@ -143,3 +143,12 @@ const helloMember = musume.member
 export default () => {
   return helloMember;
 };
+
+export const groupNameAndColor = [
+  { id: 'musume', name: '娘。', color: '#E5457D' },
+  { id: 'angerme', name: 'アン', color: '#FF85AD' },
+  { id: 'juice', name: 'JJ', color: '#F90' },
+  { id: 'kobushi', name: 'こぶ', color: '#F72F1F' },
+  { id: 'tsubaki', name: 'つば', color: '#787FDC' },
+  { id: 'beyo', name: 'ビヨ', color: '#ba3cb8' },
+];
